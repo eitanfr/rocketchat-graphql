@@ -84,7 +84,7 @@ enum UserStatus {
     INVISIBLE
 }
 
-type userPreferences {
+type UserPreferences {
     language: String
     notificationDuration: Float
     unreadTrayIconAlert: Boolean
@@ -133,10 +133,22 @@ input UserSettings {
     name: String
 }
 
+type NotificationSettings {
+    disableNotification: Boolean
+    audio: String
+    desktop: String
+    duration: Integer
+    mobile: String
+    mail: String
+    hideUnreadRoomStatus : Boolean
+    unreadTrayIconAlret: String
+}
+
 type Channel {
     id: String!
     title: String!
     # topic: TODO
+    # userNotificationSettings: NotificationSettings
     description: String!
     announcement: String!
     numberOfMembers: Int!
