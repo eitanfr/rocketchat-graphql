@@ -8,7 +8,8 @@ type Mutations {
     deleteMessage(messageId: MessageIdentifier!): Boolean
     editMessage(messageId: MessageIdentifier!, messageInput: MessageInput!): Message
     addReacitonToMassage(messageId: MessageIdentifier!, icon: String!): Message
-    updateUser(userSettings: UserSettings): User
+    updateUserSettings(userSettings: UserSettings): User
+    #updateUserChannelSettings(channelId: String!,settings: ChannelSettings )
 }
 
 type Query {
@@ -133,7 +134,7 @@ input UserSettings {
     name: String
 }
 
-type NotificationSettings {
+type ChannelSettings {
     disableNotification: Boolean
     audio: String
     desktop: String
@@ -148,7 +149,7 @@ type Channel {
     id: String!
     title: String!
     # topic: TODO
-    # userNotificationSettings: NotificationSettings
+    # userNotificationSettings: ChannelSettings
     description: String!
     announcement: String!
     numberOfMembers: Int!
